@@ -42,6 +42,7 @@ async function saveToMongoDB(data) {
       batteryVoltage: parseFloat(data.batteryVoltage.toFixed(5)),
       panelVoltage: parseFloat(data.panelVoltage.toFixed(5)),
       temperature: parseFloat(data.temperature.toFixed(5)),
+      timestamp: new Date().getTime(), // Add current timestamp
     };
     await collection.insertOne(formattedData);
   } catch (error) {
