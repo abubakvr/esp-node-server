@@ -79,7 +79,9 @@ wss.on("connection", (ws) => {
     try {
       const parsedMessage = JSON.parse(message);
       await saveToMongoDB(parsedMessage);
-      broadcast(JSON.stringify(parsedMessage));
+      broadcast(
+        JSON.stringify(parsedMessage) ? JSON.stringify(parsedMessage) : message
+      );
       ws.send("Hello from the server!");
     } catch (error) {
       console.error("Error handling WebSocket message:", error);
