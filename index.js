@@ -57,7 +57,7 @@ async function saveToMongoDB(data) {
   }
 }
 
-async function getLatestDataFromMongoDB(limit = 50) {
+async function getLatestDataFromMongoDB(limit = 5000) {
   try {
     const database = client.db(dbName);
     const collection = database.collection(collectionName);
