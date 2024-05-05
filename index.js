@@ -7,6 +7,12 @@ const { MongoClient } = require("mongodb");
 // Constants
 
 const app = express();
+const cors = require("cors");
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
