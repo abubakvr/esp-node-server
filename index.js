@@ -1,9 +1,9 @@
 // Imports
-
 const express = require("express");
 const http = require("http");
 const WebSocket = require("ws");
 const { MongoClient } = require("mongodb");
+require("dotenv").config();
 
 // Constants
 
@@ -11,9 +11,10 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
-const mongoUrl = "mongodb://localhost:27017";
+const mongoUrl = process.env.MONGO_URL;
+
 const dbName = "egauge";
-const collectionName = "data";
+const collectionName = "values";
 const client = new MongoClient(mongoUrl, { useUnifiedTopology: true });
 
 // Define connections set
