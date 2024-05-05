@@ -3,7 +3,6 @@ const express = require("express");
 const http = require("http");
 const WebSocket = require("ws");
 const { MongoClient } = require("mongodb");
-require("dotenv").config();
 
 // Constants
 
@@ -11,8 +10,8 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
-const mongoUrl = process.env.MONGO_URL;
-
+const mongoUrl =
+  "mongodb+srv://sadeeqdev:seeman11@cluster0.ek6rkci.mongodb.net/egauge?retryWrites=true&w=majority";
 const dbName = "egauge";
 const collectionName = "values";
 const client = new MongoClient(mongoUrl, { useUnifiedTopology: true });
