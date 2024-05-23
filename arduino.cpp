@@ -1,5 +1,6 @@
 #include <Wire.h>
 #include <WiFi.h>
+#include <WiFiMulti.h>
 #include <WebSocketsClient.h>
 #include <ArduinoJson.h>
 #include <Adafruit_INA219.h>
