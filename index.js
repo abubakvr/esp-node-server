@@ -75,8 +75,6 @@ async function getLatestDataFromMongoDB(limit = 5000) {
   }
 }
 
-// WebSocket Event Handlers
-
 wss.on("connection", (ws) => {
   console.log("WebSocket connected");
   console.log(ws._socket.remoteAddress);
@@ -107,8 +105,6 @@ function broadcast(message) {
   }
 }
 
-// Express Routes
-
 app.get("/latest-data", async (req, res) => {
   try {
     const latestData = await getLatestDataFromMongoDB();
@@ -122,8 +118,6 @@ app.get("/latest-data", async (req, res) => {
 app.get("/", (req, res) => {
   res.send("Hello esp node server!");
 });
-
-// Server Setup
 
 const PORT = process.env.PORT || 8080;
 
